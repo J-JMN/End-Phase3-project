@@ -2,7 +2,7 @@ from crud import *
 
 def author_commands(db):
     while True:
-        print("\n🧑 Author Menu:\n1. ➕ Add\n2. 👀 View\n3. 📝 Update\n4. 🔙 Back")
+        print("\n🧑 Author Menu:\n1. ➕ Add\n2. 👀 View\n3. 📝 Update\n4. ❌ Delete\n5. 🔙 Back")
         choice = input("Choose index: ")
 
         if choice == "1":
@@ -38,13 +38,27 @@ def author_commands(db):
                 print("Invalid input.")
 
         elif choice == "4":
+            authors = get_all_authors(db)
+            for author in authors:
+                print(author)
+            try:
+                author_id = int(input("Enter Author ID to delete: "))
+                if delete_author(db, author_id):
+                    print("✅ Author deleted!")
+                else:
+                    print("❌ Author not found.")
+            except ValueError:
+                print("Invalid input.")
+
+        elif choice == "5":
             break
         else:
             print("❗ Invalid choice.")
 
+
 def genre_commands(db):
     while True:
-        print("\n🎭 Genre Menu:\n1. ➕ Add\n2. 👀 View\n3. 📝 Update\n4. 🔙 Back")
+        print("\n🎭 Genre Menu:\n1. ➕ Add\n2. 👀 View\n3. 📝 Update\n4. ❌ Delete\n5. 🔙 Back")
         choice = input("Choose index: ")
 
         if choice == "1":
@@ -80,13 +94,27 @@ def genre_commands(db):
                 print("Invalid input.")
 
         elif choice == "4":
+            genres = get_all_genres(db)
+            for genre in genres:
+                print(genre)
+            try:
+                genre_id = int(input("Enter Genre ID to delete: "))
+                if delete_genre(db, genre_id):
+                    print("✅ Genre deleted!")
+                else:
+                    print("❌ Genre not found.")
+            except ValueError:
+                print("Invalid input.")
+
+        elif choice == "5":
             break
         else:
             print("❗ Invalid choice.")
 
+
 def tag_commands(db):
     while True:
-        print("\n🏷️ Tag Menu:\n1. ➕ Add\n2. 👀 View\n3. 📝 Update\n4. 🔙 Back")
+        print("\n🏷️ Tag Menu:\n1. ➕ Add\n2. 👀 View\n3. 📝 Update\n4. ❌ Delete\n5. 🔙 Back")
         choice = input("Choose index: ")
 
         if choice == "1":
@@ -122,9 +150,23 @@ def tag_commands(db):
                 print("Invalid input.")
 
         elif choice == "4":
+            tags = get_all_tags(db)
+            for tag in tags:
+                print(tag)
+            try:
+                tag_id = int(input("Enter Tag ID to delete: "))
+                if delete_tag(db, tag_id):
+                    print("✅ Tag deleted!")
+                else:
+                    print("❌ Tag not found.")
+            except ValueError:
+                print("Invalid input.")
+
+        elif choice == "5":
             break
         else:
             print("❗ Invalid choice.")
+
 
 def book_commands(db):
     while True:
@@ -234,4 +276,5 @@ def book_commands(db):
             break
         else:
             print("❗ Invalid choice. Try again.")
+
 
