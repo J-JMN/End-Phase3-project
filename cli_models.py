@@ -45,8 +45,6 @@ def author_commands(db):
                 author_id = int(input("Enter Author ID to delete: "))
                 if delete_author(db, author_id):
                     print("✅ Author deleted!")
-                else:
-                    print("❌ Author not found.")
             except ValueError:
                 print("Invalid input.")
 
@@ -179,10 +177,6 @@ def book_commands(db):
             genres = get_all_genres(db)
             tags = get_all_tags(db)
 
-            if not authors or not genres:
-                print("❗ You need at least one author and genre before adding books.")
-                continue
-
             print("\nAvailable Authors:")
             for author in authors:
                 print(author)
@@ -218,8 +212,6 @@ def book_commands(db):
             print("\n📖 Books:")
             for book in books:
                 print(book)
-            else:
-                print("No books available.")
 
         elif choice == "3":
             books = get_all_books(db)
@@ -276,5 +268,4 @@ def book_commands(db):
             break
         else:
             print("❗ Invalid choice. Try again.")
-
 

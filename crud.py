@@ -35,6 +35,11 @@ def get_all_books(db):
 # ========== DELETE ==========
 def delete_author(db, author_id):
     author = db.query(Author).get(author_id)
+
+    if author.books and len(author.books) > 0:
+        print("❌ Cannot delete author with books.")
+        return False
+    
     if author:
         db.delete(author)
         db.commit()
@@ -102,9 +107,10 @@ def update_book(db, book_id, new_title=None, new_author_id=None, new_genre_id=No
         book.author_id = new_author_id
     if new_genre_id:
         book.genre_id = new_genre_id
-    if new_tag_ids is not None:  
+    if new_tag_ids is not None: 
         tags = db.query(Tag).filter(Tag.id.in_(new_tag_ids)).all()
         book.tags = tags
 
     db.commit()
     return True
+
