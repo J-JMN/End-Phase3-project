@@ -39,7 +39,7 @@ The **Library CLI Manager** is a fully modular Python command-line application d
 
  ## 🙋 Support / Contact
  - If you find any bugs or want to suggest improvements, feel free to reach out:
- - GitHub: J-JMN (or insert GitHub profile URL)
+ - GitHub: J-JMN 
  - Email: j.mburu.pro@gmail.com
 
  ## 📄 License
