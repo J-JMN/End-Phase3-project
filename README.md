@@ -1,5 +1,6 @@
 ![Project-schema screenshot](./images/Project-schema.png)
-
+Link to schema diagram - [https://dbdiagram.io/d/Library-CLI-Management-6834389f0240c65c443856c2]
+Link to project demo - [https://www.loom.com/share/4e3429fe6f6c4b3ca742cc838cfeffeb]
 
 # 📚 Library CLI Manager
 
